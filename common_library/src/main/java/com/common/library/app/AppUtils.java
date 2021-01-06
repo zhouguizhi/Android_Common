@@ -8,9 +8,13 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import java.lang.reflect.InvocationTargetException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+
 /**
  * @Description:
  * @Author: zhouguizhi
@@ -97,9 +101,7 @@ public class AppUtils {
      * @return app的包名
      */
     public static  String getPackageName(Context context) {
-        if(context==null){
-            throw new NullPointerException("context must be past");
-        }
+       checkContext(context);
         try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
@@ -170,6 +172,74 @@ public class AppUtils {
         }
         return appIcon;
     }
+
+    /**
+     * 获取app sha1值
+     * @param context 上下文
+     * @return 获取app 的sha1 值
+     */
+    public static String getSha1(Context context) {
+        checkContext(context);
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo(
+                    context.getPackageName(), PackageManager.GET_SIGNATURES);
+            byte[] cert = info.signatures[0].toByteArray();
+            MessageDigest md = MessageDigest.getInstance("SHA1");
+            byte[] publicKey = md.digest(cert);
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < publicKey.length; i++) {
+                String appendString = Integer.toHexString(0xFF & publicKey[i])
+                        .toUpperCase(Locale.US);
+                if (appendString.length() == 1)
+                    hexString.append("0");
+                hexString.append(appendString);
+                hexString.append(":");
+            }
+            String result = hexString.toString();
+            return result.substring(0, result.length() - 1);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    /**
+     * 获取app第一次安装日期
+     * @param context 上下文
+     * @param packageName 包名
+     * @return 第一次安装的时间
+     */
+    public static long getAppFirstInstallTime(Context context, String packageName) {
+        checkContext(context);
+        long lastUpdateTime = 0;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
+            lastUpdateTime = packageInfo.firstInstallTime;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return lastUpdateTime;
+    }
+
+    /**
+     * app更新日期
+     * @param context 上下文
+     * @param packageName 包名
+     * @return app更新日期
+     */
+    public static long getAppLastUpdateTime(Context context, String packageName) {
+        checkContext(context);
+        long lastUpdateTime = 0;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
+            lastUpdateTime = packageInfo.lastUpdateTime;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return lastUpdateTime;
+    }
+
     public static void checkContext(Context context){
         if(context==null){
             throw new NullPointerException("context must be past");

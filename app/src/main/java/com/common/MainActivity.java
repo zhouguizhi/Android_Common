@@ -3,7 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import com.common.library.app.AppUtils;
+import com.common.library.thread.ThreadUtil;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -12,8 +12,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void test(View view) {
+        ThreadUtil.transformToMainThread(new Runnable() {
+            @Override
+            public void run() {
 
-        Log.e("zhouguizhi", "app:="+AppUtils.isSystemApp(this,AppUtils.getPackageName(this)));
+            }
+        });
+        Log.e("zhouguizhi","线程:="+ ThreadUtil.isRunMainThread());
+//        AppUtils.runThirdApp(null,"com.xqxc.customer");
+
     }
-
 }
