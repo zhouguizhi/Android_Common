@@ -49,17 +49,9 @@ public class PhoneUtil {
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<phone.length();i++){
             if(i>=3&&i<=6){
-                if(i==3){
-                    sb.append(" ").append("*");
-                }else{
-                    sb.append("*");
-                }
+                sb.append(i==3?" ":"").append("*");
             }else {
-                if(i==7){
-                    sb.append(" ").append(phone.charAt(i));
-                }else{
-                    sb.append(phone.charAt(i));
-                }
+                sb.append(i==7?" ":"").append(phone.charAt(i));
             }
         }
         result = sb.toString();
