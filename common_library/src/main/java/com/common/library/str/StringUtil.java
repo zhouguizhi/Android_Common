@@ -1,7 +1,5 @@
 package com.common.library.str;
 import android.text.TextUtils;
-import android.util.Log;
-
 /**
  * @Description: 字符串常用功能
  * @Author: zhouguizhi
