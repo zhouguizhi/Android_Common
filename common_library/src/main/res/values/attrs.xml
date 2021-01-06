@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ItemSettingView">
+        <attr name="item_setting_leftTitle" format="string" />
+        <attr name="item_setting_leftTitleColor" format="color" />
+        <attr name="item_setting_leftTitleSize" format="integer" />
+
+        <attr name="item_setting_leftSubTitle" format="string" />
+        <attr name="item_setting_leftSubTitleColor" format="color" />
+        <attr name="item_setting_leftSubTitleSize" format="integer" />
+
+
+        <attr name="item_setting_rightTitle" format="string" />
+        <attr name="item_setting_rightTitleColor" format="color" />
+        <attr name="item_setting_rightTitleSize" format="integer" />
+
+        <attr name="item_setting_rightSubTitle" format="string" />
+        <attr name="item_setting_rightSubTitleColor" format="color" />
+        <attr name="item_setting_rightSubTitleSize" format="integer" />
+
+        <attr name="item_setting_leftTitleToLeftMargin" format="integer" />
+        <attr name="item_setting_rightTitleToRightMargin" format="integer" />
+        <attr name="item_setting_height" format="integer"></attr>
+        <attr name="item_setting_isShowBottomLine" format="boolean"></attr>
+        <attr name="item_setting_rightArrowDrawable" format="reference"></attr>
+        <attr name="item_setting_bg_color" format="color"></attr>
+        <attr name="item_setting_bottom_line_color" format="color"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="TitleView">
+        <attr name="title_left_drawable" format="reference|integer" />
+        <attr name="title_left_drawable_to_left" format="reference|integer" />
+        <attr name="title_center_text" format="string|reference" />
+        <attr name="title_center_text_color" format="color|reference" />
+        <attr name="title_center_text_size" format="integer|reference" />
+        <attr name="title_right_text" format="string|reference" />
+        <attr name="title_right_text_color" format="color|reference" />
+        <attr name="title_right_text_size" format="integer|reference" />
+        <attr name="title_right_text_to_margin" format="integer|reference" />
+        <attr name="title_isShowBottomLine" format="boolean"></attr>
+        <attr name="title_bottom_line_color" format="color|reference"></attr>
+        <attr name="title_bg_color" format="color"></attr>
+        <attr name="title_item_height" format="reference|integer"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="InputTextView">
+        <attr name="input_left_drawable" format="reference|integer" />
+        <attr name="input_left_drawable_to_left" format="reference|integer" />
+        <attr name="input_right_text" format="string|reference" />
+        <attr name="input_right_text_color" format="color|reference" />
+        <attr name="input_right_text_size" format="integer|reference" />
+        <attr name="input_isShowBottomLine" format="boolean"></attr>
+        <attr name="input_bottom_line_color" format="color|reference"></attr>
+        <attr name="input_bg_color" format="color"></attr>
+        <attr name="input_item_height" format="reference|integer"></attr>
+        <attr name="input_content_hint_text" format="reference|string"></attr>
+        <attr name="input_content_hint_text_color" format="color|string"></attr>
+        <attr name="input_content_hint_text_size" format="reference|integer"></attr>
+
+        <attr name="input_left_text" format="string|reference" />
+        <attr name="input_left_text_color" format="color|reference" />
+        <attr name="input_left_text_size" format="integer|reference" />
+        <attr name="input_left_text_to_margin" format="integer|reference" />
+        <attr name="input_right_text_to_margin" format="integer|reference" />
+        <attr name="input_content_to_left_margin" format="integer|reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="UpImageDownTextView">
+        <attr name="up_top_drawable" format="reference" />
+        <attr name="down_text" format="string|reference" />
+        <attr name="down_text_color" format="color|reference" />
+        <attr name="down_text_size" format="integer|reference" />
+        <attr name="up_item_width" format="integer|reference" />
+        <attr name="up_item_height" format="integer|reference" />
+        <attr name="up_bg_color" format="color|reference" />
+        <attr name="up_image_to_top_margin" format="integer|reference" />
+        <attr name="up_text_to_image_margin" format="integer|reference" />
+        <attr name="up_text_to_bottom_margin" format="integer|reference" />
+    </declare-styleable>
+
+</resources>
