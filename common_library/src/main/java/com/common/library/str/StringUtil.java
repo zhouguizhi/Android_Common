@@ -8,7 +8,6 @@ import android.text.TextUtils;
  */
 public class StringUtil {
     private StringUtil(){}
-
     /**
      * 每四个字符串 添加一个空格
      * @param str

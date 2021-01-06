@@ -1,9 +1,11 @@
 package com.common.library.app;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -150,9 +152,36 @@ public class AppUtils {
         }
         return permissions;
     }
+    /**
+     * 获取app 图标
+     * @param context 上下文
+     * @param packageName 包名
+     * @return app的图标
+     */
+    public static Drawable getAppIcon(Context context, String packageName) {
+        checkContext(context);
+        PackageManager pm = context.getPackageManager();
+        Drawable appIcon = null;
+        try {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo(packageName, 0);
+            appIcon = applicationInfo.loadIcon(pm);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return appIcon;
+    }
     public static void checkContext(Context context){
         if(context==null){
             throw new NullPointerException("context must be past");
         }
+    }
+    /**
+     * 启动第三方应用
+     * @param context 上下文
+     * @param packageName 第三方包名
+     */
+    public static void runThirdApp(Context context, String packageName) {
+        checkContext(context);
+        context.startActivity(new Intent(context.getPackageManager().getLaunchIntentForPackage(packageName)));
     }
 }
