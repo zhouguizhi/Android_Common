@@ -24,11 +24,7 @@ public class PhoneUtil {
         }
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<phone.length();i++){
-            if(i>=3&&i<=6){
-                sb.append("*");
-            }else {
-                sb.append(phone.charAt(i));
-            }
+            sb.append(i>=3&&i<=6?"*":phone.charAt(i));
         }
         result = sb.toString();
         return result;

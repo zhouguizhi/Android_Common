@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void test(View view) {
-        Log.e("zhouguizhi","res:="+ PhoneUtil.toConverStarInCenterAndAddSpace("15257171435"));
+        
+        Log.e("zhouguizhi","res:="+ PhoneUtil.toConverStarInCenter("15257171435"));
     }
 }
